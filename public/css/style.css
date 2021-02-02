@@ -1,0 +1,312 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+html,body {
+    height:100%;
+}
+.navbar {
+    display:flex;
+    width:100%;
+    
+    background-color:#eee;
+   
+    align-items:center;
+    
+}
+.flex-navbar{
+    width:97%;
+    display:flex;
+    align-items:center;
+    margin:0 auto;
+    justify-content:space-around;
+  
+  
+}
+
+.container-flex {
+    display:flex;
+    max-width:1800px;
+    width:100%;
+    margin:0 auto;
+    
+    
+    
+}
+
+.services-fluid {
+    Width:100%;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    margin: 0 auto;
+    flex-wrap:nowrap;
+    justify-content: center;
+    flex-direction: row;
+}
+.services-container {
+    width:75%;
+    
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.flex-navbar ul {
+    display:flex;
+    width:55%;
+    list-style-type: none;
+    margin:auto 0;
+    margin-right:auto;
+    align-items:center;
+   
+    justify-content: flex-start;
+}
+.flex-navbar li a {
+    margin:0 7.1px;
+    text-decoration:none;
+    color:black;
+
+    font-size:20px;
+}
+
+.login-navbar  a {
+    margin:0 7.1px;
+    text-decoration:none;
+    color:black;
+   
+    font-size:20px;
+    
+   
+}
+.flex-navbar li a:hover {
+    color:rgb(51, 36, 255);
+}
+.login-navbar  a:hover {
+    color:rgb(51, 36, 255);
+}
+
+.bg-main {
+    background-image:url('../img/main.jpg');
+    background-size:100% 100%;
+    background-position:center bottom;
+    width:100%;
+    height:100%;
+    
+    background-color:black;
+    background-repeat:no-repeat;
+    
+ 
+   
+    
+}
+
+.black-transparent {
+    background-color:rgba(0, 0, 0, 0.425);
+    z-index:999;
+    width:100%;
+
+    height:100%;
+
+
+
+    display:flex;
+    align-items:center;
+    padding:0px 30%;
+    line-height:45px;
+    flex-direction: column;
+    
+    justify-content: center;
+}
+.black-transparent h1 {
+    color:white;
+
+    margin-top:25px;
+
+}
+.black-transparent p {
+    color:whitesmoke;
+    font-size:25px;
+}
+.buttons-main {
+    width:100%;
+
+    margin-bottom: 15px;
+    display:flex;
+    justify-content: center;
+
+   
+    display:flex;
+    justify-content: space-around;
+}
+.products {
+    width:100%;
+    background-color:white;
+    display:flex;
+}
+
+
+.pricing-table{
+  background-color: #eee;
+  font-family: 'Montserrat', sans-serif;
+  height:auto;
+}
+
+.pricing-table .block-heading {
+  padding-top: 50px;
+  margin-bottom: 40px;
+  text-align: center; 
+}
+
+.pricing-table .block-heading h2 {
+  color: #3b99e0;
+  
+}
+
+.pricing-table .block-heading p {
+  text-align: center;
+  max-width: 420px;
+  margin: auto;
+  opacity: 0.7; 
+}
+
+.pricing-table .heading {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+}
+
+.pricing-table .item {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+  border-top: 2px solid #5ca9dd;
+  padding: 30px;
+  overflow: hidden;
+  position: relative; 
+}
+
+.pricing-table .col-md-5:not(:last-child) .item {
+  margin-bottom: 30px; 
+}
+
+.pricing-table .item button {
+  font-weight: 600; 
+}
+
+.pricing-table .ribbon-offer {
+  width: 160px;
+  height: 32px;
+  font-size: 22px;
+  text-align: center;
+  justify-content: center;
+  display:flex;
+  align-items:center;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0px 2px 3px rgba(136, 136, 136, 0.25);
+  background: #4dbe3b;
+  transform: rotate(45deg);
+  position: absolute;
+  right: -42px;
+  top: 20px;
+  padding-top: 7px; 
+}
+.pricing-table .ribbon-price {
+    width: 160px;
+    height: 32px;
+    font-size: 16.1px;
+    text-align: center;
+    justify-content: center;
+    display:flex;
+    align-items:center;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0px 2px 3px rgba(136, 136, 136, 0.25);
+    background: #166aca;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -42px;
+    top: 20px;
+    padding-top: 7px; 
+  }
+
+.pricing-table .item p {
+  text-align: center;
+  margin-top: 20px;
+  opacity: 0.7; 
+}
+
+.pricing-table .features .feature {
+  font-weight: 600; }
+
+.pricing-table .features h4 {
+  text-align: center;
+  font-size: 18px;
+  padding: 5px; 
+}
+
+
+.pricing-table .price h4 {
+  margin: 15px 0;
+  font-size: 45px;
+  text-align: center;
+  color: #2288f9; 
+}
+
+.pricing-table .price h5 {
+    font-size: 25px;
+    text-align: center;
+    color: #2288f9; 
+  }
+.pricing-table .buy-now button {
+  text-align: center;
+  margin: auto;
+  font-weight: 600;
+  padding: 9px 0; 
+}
+
+
+
+@media screen and (max-width:966px) {
+    .flex-navbar {
+        flex-direction:column;
+        width:100%;
+        justify-content: center;
+    }
+    .logo {
+        display:flex;
+        align-items:center;
+        justify-content: center;
+    }
+    .flex-navbar ul {
+        justify-content: center;
+
+       
+        padding:0;
+
+       
+
+        width:100%;
+    }
+    .login-navbar {
+        width:100%;
+        justify-content: center;
+        display:flex;
+        align-items:center;
+    }
+
+    .black-transparent {
+        height:auto;
+        padding:0 4%;
+        line-height:35px;
+        font-size:20px;
+        
+    }
+    .black-transparent p {
+        font-size:18px;
+    }
+
+}
+

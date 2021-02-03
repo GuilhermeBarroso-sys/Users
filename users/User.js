@@ -22,6 +22,6 @@ const User = conn.define('User', {
 
 });
 User.belongsTo(Plan)
-User.sync({force: true});
+User.sync({force: false});
 
 module.exports = User;

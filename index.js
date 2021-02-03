@@ -1,10 +1,14 @@
 const express = require("express");
+const session = require("express-session");
 const app = express();
 const conn = require("./database/database");
 const User = require("./users/User");
 const Plan = require("./plan/Plan");
 const bodyParser = require("body-parser");
 const users = require("./Users/usersController");
+app.use(session({
+    secret: "dolphplan"
+}))
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -19,6 +23,7 @@ conn.authenticate()
 
 app.use("/", users);
 app.get("/", (req,res) => {
+    
     res.render("index");
 })
 

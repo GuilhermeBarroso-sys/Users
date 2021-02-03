@@ -35,6 +35,6 @@ const Plan = conn.define('plan',{
     }
 })
 
-Plan.sync({force: true});
+Plan.sync({force: false});
 
 module.exports = Plan;

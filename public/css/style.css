@@ -81,6 +81,14 @@ html,body {
     
    
 }
+.hello {
+  margin:0 7.1px;
+  text-decoration:none;
+  color:rgb(64, 126, 177);
+ 
+  font-size:20px;
+  
+}
 .flex-navbar li a:hover {
     color:rgb(51, 36, 255);
 }

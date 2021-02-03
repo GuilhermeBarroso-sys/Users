@@ -17,6 +17,9 @@ const User = conn.define('User', {
     },
     money: {
         type: sequelize.DOUBLE
+    },
+    isAdm: {
+        type: sequelize.BOOLEAN
     }
 
 

@@ -1,0 +1,28 @@
+<%- include('../../partials/head.ejs') %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>Edição de Usuário</h2>
+        </div> <!--card-title-->
+        <div class="card-body">
+            <form method = "POST" action="/users/update">
+                <input class = "form-control" type="text" name="name" value = "<%= user.name %>" placeholder = "Editar nome do Usuario ">
+                <input type="hidden" name="id" value = "<%= user.id %>">
+                <br>                
+                <input class = "form-control" type="email" name="email" placeholder = "novo email" />
+                <br>
+                <input class = "form-control" type="text" name="money" placeholder = "Editar créditos " />
+                <br>
+                <input class = "form-control" type="password" name="password" placeholder = "nova senha" />
+                <br>
+            
+                <button class="btn btn-success">Atualizar</button>
+            </form>
+        </div> <!--card-body-->
+        
+    </div> <!--card-->
+    
+</div> <!--container-->
+
+<%- include('../../partials/footer.ejs') %>

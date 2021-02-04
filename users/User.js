@@ -24,7 +24,10 @@ const User = conn.define('User', {
 
 
 });
-User.belongsTo(Plan)
-User.sync({force: false});
 
+User.belongsTo(Plan);
+Plan.hasMany(User);
+/*
+User.sync({force: false});
+*/
 module.exports = User;

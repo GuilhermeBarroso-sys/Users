@@ -1,5 +1,13 @@
 <%- include('./partials/head.ejs') %>
-<%- include('./partials/navbar.ejs') %>
+<% if (session == undefined) { %>
+  <%- include('./partials/navbar.ejs') %>
+<% } %>
+
+
+
+<% if (session != undefined) { %>
+  <%- include('./partials/navbarSession.ejs') %>
+<% }%>
 <main>
     <div class="bg-main">
         
@@ -44,7 +52,7 @@
                       <div class="price">
                           <h4>R$25</h4>
                       </div>
-                      <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      
                   </div>
               </div>
               <div class="col-md-5 col-lg-4">
@@ -65,7 +73,7 @@
                       <div class="price">
                           <h4>R$50</h4>
                       </div>
-                      <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      
                   </div>
               </div>
               <div class="col-md-5 col-lg-4">
@@ -87,7 +95,7 @@
                           <h5 style = "text-decoration:line-through;">R$150</h5>
                           <h5 style = "color:#4dbe3b;font-size:26px;">R$ 80</h5>
                       </div>
-                      <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      
                   </div>
               </div>
           </div>

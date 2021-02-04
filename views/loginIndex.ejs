@@ -1,23 +1,36 @@
 <%- include('./partials/head.ejs') %>
-<%- include('./partials/navbarSession.ejs') %>
+
+ 
+
+
 <main>
-    <div class="bg-main">
+    
         
-        <div class="black-transparent">  
-          
-            <h1> Seu Título Aqui </h1>
-            <p style = "text-align:justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor faucibus tellus, quis tincidunt ligula efficitur quis. Mauris ut sapien vel risus commodo gravida. Donec elementum dapibus ipsum. Morbi eu odio orci. Etiam fermentum erat nec felis maximus, vitae tristique lorem lacinia. Etiam hendrerit lorem sit amet mi accumsan finibus. Aenean ultrices nisi purus, non commodo arcu tincidunt in. Duis congue ex ut nisi varius, id dapibus ex feugiat. Pellentesque et porttitor lacus, sit amet varius quam. Quisque rhoncus elementum orci, eu varius eros pellentesque lobortis. </p>
-            
-            <div class="buttons-main">
-                <a href="#" class="btn btn-success">Ler mais</a>
+          <div class="perfil2-container">
+           <a href = "/"><h3 class = "back">Home</h3> </a>  
+            <div class = "circle"></div>
+            <h3 style = "color:white;">Bem-vindo, <%= user.name %></h3>
+            <div class="information-container">
+                <span class = "mb5-ml-10" style = "font-weight:bold;color:aliceblue;font-size:20px;">Seus dados: </span>
                 
+                <span class = "white"> Nome: <span style = "font-weight:bold;color:aliceblue;"> <%= user.name %> </span> </span>  
+                <br>
+                <span class = "white"> Email: <span  style = "font-weight:bold; color:aliceblue;"> <%= user.email %> </span> </span> 
+                <br>
+                <span class = "white"> Créditos disponiveis: <span  style = "font-weight:bold; color:aliceblue;"> R$<%= user.money %> </span> </span> 
+                <br>
+                <span class = "white"> Plano: <span  style = "font-weight:bold;color:aliceblue;margin-bottom:15px;"> <%= user.plan.name %> </span> </span> 
+                
+
             </div>
+            <br>
             
-        </div>
-        
+            
+          </div>
+      
 
         
-    </div>
+    
     
    
     <section class="pricing-table">
@@ -44,7 +57,12 @@
                       <div class="price">
                           <h4>R$25</h4>
                       </div>
-                      <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      <form method = "POST" action = "/buy">
+                        <input type = "hidden" value = "2" name = "id">
+                        <input type = "hidden" value = "<%= user.id %>" name = "userId">
+                        <input type = "hidden" value = "<%= user.money %>" name = "money">
+                        <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      </form>
                   </div>
               </div>
               <div class="col-md-5 col-lg-4">
@@ -65,7 +83,12 @@
                       <div class="price">
                           <h4>R$50</h4>
                       </div>
-                      <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      <form method = "POST" action = "/buy">
+                        <input type = "hidden" value = "3" name = "id">
+                        <input type = "hidden" value = "<%= user.id %>" name = "userId">
+                        <input type = "hidden" value = "<%= user.money %>" name = "money">
+                        <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      </form>
                   </div>
               </div>
               <div class="col-md-5 col-lg-4">
@@ -87,7 +110,13 @@
                           <h5 style = "text-decoration:line-through;">R$150</h5>
                           <h5 style = "color:#4dbe3b;font-size:26px;">R$ 80</h5>
                       </div>
-                      <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      <form method = "POST" action = "/buy">
+                        <input type = "hidden" value = "1" name = "id">
+                        <input type = "hidden" value = "<%= user.id %>" name = "userId">
+                        <input type = "hidden" value = "<%= user.money %>" name = "money">
+                        <button class="btn btn-block btn-outline-primary" type="submit">Comprar</button>
+                      </form>
+                      
                   </div>
               </div>
           </div>

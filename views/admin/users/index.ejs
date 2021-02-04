@@ -19,15 +19,24 @@
             </thead>
         <tbody>
             <% users.forEach(user => { %>
+                <% if(user.isAdm) { %>
+                    <td style = "color:#0dcaf0"><%= user.id %></td>
+                    <td style = "color:#0dcaf0"><%= user.name %></td>
+                    <td style = "color:#0dcaf0"><%= user.money %></td>
+                    <td style = "color:#0dcaf0"><%= user.email %></td>
+                    <td style = "color:#0dcaf0"">
+                       <h6>Esse usuário é administrador! </h6> 
+                    
+                    </td>
+                <% }else {%>
+
                 <tr>
                     <td><%= user.id %></td>
                     <td><%= user.name %></td>
                     <td><%= user.money %></td>
                     <td><%= user.email %></td>
-                 
                     <td>
-                        
-                        <a href= "/admin/users/edit/<%= user.id %>" class="btn btn-info">Editar</a>
+                    <a href= "/admin/users/edit/<%= user.id %>" class="btn btn-info">Editar</a>
                         
                         <form method = "POST" action="/users/delete"  onsubmit="confirmDel(event,this)" style = "display: inline;">
                             <input type = "hidden" name = "id" value = "<%= user.id %>"  />  <!-- pegar o id da pa categoria-->
@@ -36,6 +45,8 @@
                         </form>
                     
                     </td>
+                    <% } %>     
+                        
                 </tr>
             <% }) %>
         </tbody>

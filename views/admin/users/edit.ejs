@@ -10,11 +10,13 @@
                 <input class = "form-control" type="text" name="name" value = "<%= user.name %>" placeholder = "Editar nome do Usuario ">
                 <input type="hidden" name="id" value = "<%= user.id %>">
                 <br>                
-                <input class = "form-control" type="email" name="email" placeholder = "novo email" />
+                <input class = "form-control" type="email" name="email" value = "<%= user.email %>" placeholder = "novo email" />
                 <br>
-                <input class = "form-control" type="text" name="money" placeholder = "Editar créditos " />
+                <input class = "form-control" type="text" name="money"value = "<%= user.money %>" placeholder = "Editar créditos " />
                 <br>
-                <input class = "form-control" type="password" name="password" placeholder = "nova senha" />
+                
+                <br>
+                <input class = "form-control" type="password" name="password"  placeholder = "nova senha" />
                 <br>
             
                 <button class="btn btn-success">Atualizar</button>

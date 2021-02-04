@@ -1,16 +1,17 @@
-<%- include('../partials/head.ejs') %>
+<%- include('../../partials/head.ejs') %>
+
     <div class="container w-50">
-        
+      
         <div class="card mt-4">
             <div class="card-header">
                 Entrar
             </div> <!--card-header-->
 
             <div class="card-body">
-                <form action = "/authenticate" method = "POST">
+                <form action = "/adminAuthenticate" method = "POST">
                     
-                    <label>Usuário</label>
-                    <input class = "form-control" type="text" name="username" placeholder = "Digite o seu usuario para entrar no site" />
+                    <label>Email</label>
+                    <input class = "form-control" type="email" name="email" placeholder = "Digite o seu email para entrar no site" />
                     <br>
                     <label>Senha</label>
                     <input class = "form-control" type="password" name="password" placeholder = "Digite sua senha" />
@@ -20,4 +21,7 @@
             </div> <!--card-body-->
         </div> <!--card-->
     </div>
-<%- include('../partials/footer.ejs') %>
+
+
+
+<%- include('../../partials/footer.ejs') %>

@@ -4,6 +4,7 @@ const app = express();
 const conn = require("./database/database");
 const User = require("./users/User");
 const Plan = require("./plan/Plan");
+const plans = require("./plan/plansController");
 const bodyParser = require("body-parser");
 const users = require("./Users/usersController");
 app.use(session({
@@ -21,10 +22,17 @@ conn.authenticate()
 }) 
 
 
+
+
 app.use("/", users);
+app.use("/", plans);
 app.get("/", (req,res) => {
+    if(req.session.user != undefined ) {
+        res.render("index", {session: req.session.user});
+        
+    }
+    res.render("index", {session: undefined});
     
-    res.render("index");
 })
 
 

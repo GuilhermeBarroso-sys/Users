@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("./User");
 const Plan = require("../plan/Plan");
 const bcrypt = require("bcryptjs");
+const adminAuth = require("../middlewares/adminAuth")
 const salt = bcrypt.genSaltSync(10);
 router.get("/login",(req,res) => {
     res.render("login/signUp");
@@ -96,7 +97,7 @@ router.post("/adminAuthenticate", (req,res) => {
         if(admin != undefined) {
             var truePassword = bcrypt.compareSync(password, admin.password);
             if(truePassword && admin.isAdm) {
-                    req.session.user = {
+                    req.session.admin = {
                         id: admin.id,
                         name: admin.name
                     }
@@ -114,6 +115,13 @@ router.post("/adminAuthenticate", (req,res) => {
         }
     })
 })
+router.get("/admin/users/createUser", (req,res) => {
+    Plan.findAll().then(plans => {
+        res.render("admin/users/new", {plans: plans});
+    })
+
+    
+}) 
 /*if(user.isAdm) {
     req.session.admin = {
         id: user.id,
@@ -129,14 +137,14 @@ router.post("/adminAuthenticate", (req,res) => {
     })
     
 }*/
-router.get("/admin",(req,res) => {
+router.get("/admin", adminAuth,(req,res) => {
     User.findAll({            
         include: [{model: Plan }]
     }).then(users => {
         res.render("admin/users/index", {users: users});
     })
 })
-router.get("/admin/users/edit/:id",(req,res) => {
+router.get("/admin/users/edit/:id", adminAuth,(req,res) => {
     var id = req.params.id;
     if(id != undefined) {
         if(isNaN(id)) {
@@ -144,7 +152,10 @@ router.get("/admin/users/edit/:id",(req,res) => {
         }
         User.findByPk(id).then(user => {
             if(user != undefined) {
-                res.render("admin/users/edit", {user: user});
+                
+                    res.render("admin/users/edit", {user: user});
+               
+                
             }
             else {
                 res.redirect("admin/users/index")
@@ -153,11 +164,17 @@ router.get("/admin/users/edit/:id",(req,res) => {
     }
 
 })
-router.post("/users/update", (req,res) => {
+router.get("/logout", (req,res) => {
+    req.session.user = undefined;
+    res.redirect("/");
+})
+router.post("/users/update", adminAuth,(req,res) => {
     var id = req.body.id;
     var name = req.body.name;
     var email = req.body.email;
     var money = req.body.money;
+    var planId = req.body.planId;
+    var isAdm = req.body.isAdm;
     var password = req.body.password;
     var hash = bcrypt.hashSync(password, salt);
     User.update({
@@ -165,15 +182,47 @@ router.post("/users/update", (req,res) => {
         money: money,
         email: email,
         password: hash,
+        planId: planId,
+        isAdm: isAdm
     },
     {where: {id: id}}).then(() => {
         res.redirect("/admin");
     })
 })
-router.post("/users/delete", (req,res) => {
+router.post("/users/delete", adminAuth, (req,res) => {
     var id = req.body.id;
     User.destroy({where: {id: id}}).then(() => {
         res.redirect("/admin");
+    })
+})
+
+router.post("/users/save", adminAuth, (req,res ) => {
+    var name = req.body.name;
+    var email = req.body.email;
+    var password = req.body.password;
+    var money = req.body.money;
+    var planId = req.body.planId;
+    var isAdm = req.body.isAdm;
+    User.findOne({where: {email: email}}).
+    then(user => {
+        if(user == undefined) {
+            var hash = bcrypt.hashSync(password, salt);
+            if(name != undefined  && email != undefined && password != undefined) {
+                User.create({
+                    name: name,
+                    email: email,
+                    password: hash,
+                    money: money,
+                    planId: planId,
+                    isAdm: isAdm
+                }).then(() => {
+                    res.redirect("/admin");
+                })
+            }
+        }
+        else {
+            res.redirect("/admin/users/createUser");
+        }
     })
 })
 module.exports = router;

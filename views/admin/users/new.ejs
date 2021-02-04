@@ -1,0 +1,44 @@
+<%- include('../../partials/head.ejs') %>
+<%- include('../../partials/adminNavbar.ejs') %>
+<br>
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>Criar Usuário </h2>
+        </div> <!--card-title-->
+        <div class="card-body">
+            <form method = "POST" action="/users/save">
+                <input class = "form-control" type="text" name="name" placeholder = "Digite o nome do Usuário">
+                <br>
+                <input class = "form-control" type="email" name="email" placeholder = "Digite o email do Usuário">
+                <br>
+                <input class = "form-control" type="password" name="password" placeholder = "Digite a senha do Usuário">
+                <br>
+                <input class = "form-control" type="text" name="money" placeholder = "Digite a quantidade de créditos do Usuário">
+                <br>
+               <b><label>Plano do Usuário</label> </b>
+                <br>
+                <select name = "planId" class = "form-control">
+                    <% plans.forEach(plan => { %>
+                        <option value = "<%= plan.id %>"><%= plan.name %></option>
+                    <% }) %>
+                </select>
+                <br>
+                <b><label>O usuário será administrador?</label> </b>
+                <select name = "isAdm" class = "form-control">
+                    <option value = "1">Sim</option>
+                    <option value = "0">Não</option>
+                </select>
+
+                <button class="btn btn-success">Enviar</button>
+            </form>
+        </div> <!--card-body-->
+        
+    </div> <!--card-->
+    
+</div> <!--container-->
+
+
+
+<%- include('../../partials/footer.ejs') %>

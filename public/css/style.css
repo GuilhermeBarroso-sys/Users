@@ -10,7 +10,7 @@ html,body {
 .navbar {
     display:flex;
     width:100%;
-    
+    font-family: 'Ubuntu', sans-serif;
     background-color:#eee;
    
     align-items:center;
@@ -117,7 +117,7 @@ html,body {
     width:100%;
 
     height:100%;
-
+    font-family: 'Ubuntu', sans-serif;
 
 
     display:flex;
@@ -128,6 +128,7 @@ html,body {
     
     justify-content: center;
 }
+
 .perfil-container {
   background-color:rgba(34, 11, 100, 0.479);
   z-index:999;

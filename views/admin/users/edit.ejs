@@ -1,4 +1,5 @@
 <%- include('../../partials/head.ejs') %>
+<%- include('../../partials/adminNavbar.ejs') %>
 <div class="container">
     <hr>
     <div class="card">
@@ -14,7 +15,21 @@
                 <br>
                 <input class = "form-control" type="text" name="money"value = "<%= user.money %>" placeholder = "Editar créditos " />
                 <br>
-                
+                <b><label>Plano do Usuário</label> </b>
+                <br>
+                <select name = "planId" class = "form-control">
+                    
+                        <option value = "2">Simples</option>
+                        <option value = "3">Avançado</option>
+                        <option value = "1">Profissional</option>
+                    
+                </select>
+                <br>
+                <b><label>O usuário será administrador?</label> </b>
+                <select name = "isAdm" class = "form-control">
+                    <option value = "1">Sim</option>
+                    <option value = "0">Não</option>
+                </select>
                 <br>
                 <input class = "form-control" type="password" name="password"  placeholder = "nova senha" />
                 <br>
